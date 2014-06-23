@@ -6,6 +6,8 @@ angular.module('jp.ng-bs-animated-button', []).
       restrict: 'AE',
       replace: true,
       scope: {
+        ngClick: '&',
+        type: '@',
         isSubmitting: '=',
         result: '=',
         options: '=?'
@@ -31,7 +33,7 @@ angular.module('jp.ng-bs-animated-button', []).
         };
       },
       template:
-        '<button type="submit" class="btn {{buttonClass}} {{buttonSize}} btn-ng-bs-animated clearfix" ng-disabled="{{formIsInvalid}}">' +
+        '<button ng-click type="{{type}}" class="btn {{buttonClass}} {{buttonSize}} btn-ng-bs-animated clearfix" ng-disabled="{{formIsInvalid}}">' +
           '<div class="icons pull-{{iconsPosition}}">' +
             '<span class="{{buttonSubmittingIcon}} icon-spinner icon-submit hidden"></span>' +
             '<span class="{{buttonSuccessIcon}} icon-result icon-success hidden"></span>' +
